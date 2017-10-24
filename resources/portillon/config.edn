@@ -1,0 +1,12 @@
+{:duct.core/project-ns  portillon
+ :duct.core/environment :production
+
+ :duct.module/logging {}
+ :duct.module.web/site {}
+ :duct.module/cljs {:main portillon.client}
+
+ :duct.module/ataraxy
+ {[:get "/example"] [:example]}
+
+ :portillon.handler/example
+ {}}
