@@ -5,6 +5,11 @@
  :duct.module.web/site {}
  :duct.module/cljs {:main portillon.client}
 
+ :duct.server.http/aleph
+ {:port    3000
+  :handler #ig/ref :duct.core/handler
+  :logger  #ig/ref :duct/logger}
+
  :duct.module/ataraxy
  {[:get "/example"] [:example]}
 

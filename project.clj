@@ -7,7 +7,8 @@
                  [duct/module.logging "0.3.1"]
                  [duct/module.web "0.6.2"]
                  [duct/module.ataraxy "0.2.0"]
-                 [duct/module.cljs "0.3.1"]]
+                 [duct/module.cljs "0.3.1"]
+                 [duct/server.http.aleph "0.1.1"]]
   :plugins [[duct/lein-duct "0.10.3"]]
   :main ^:skip-aot portillon.main
   :resource-paths ["resources" "target/resources"]
