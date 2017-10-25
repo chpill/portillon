@@ -5,18 +5,22 @@
             [integrant.core :as ig]
             [manifold.deferred :as d]))
 
-(defn hello-world-handler
+(defn hello-handler
   [req]
+  (println "hello handler")
   {:status 200
    :headers {"content-type" "text/plain"}
-   :body "hello world!"})
+   :body "FBO!"})
+
+(def plop (d/deferred))
 
 (defmethod ig/init-key :portillon.handler/example [_ options]
-  (fn [{[req] :ataraxy/result}]
-    (println req)
-    (d/timeout!
-     (d/deferred)
-     1000
-     (hello-world-handler req))
-    #_[::response/ok (io/resource "portillon/handler/example/example.html")]))
+  (fn [req respond raise]
+
+    (future
+      (Thread/sleep 2000)
+      (respond (hello-handler req)))
+
+    (println "PLOP?")
+    nil))
 
